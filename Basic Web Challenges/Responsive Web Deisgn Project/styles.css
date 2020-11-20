@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap');
+
+#bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url("https://source.unsplash.com/YV_gbygzlWk");
+  background-size: cover;
+  z-index: -100;
+}
+
+#bg-filter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  /* background-color: #e3e2df9d; */
+  background-color: #5d001dde;
+  z-index: -99;
+}
+
+#main-doc {
+  font-family: Poppins;
+}
+
+
+
+#navbar {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+
+  display: block;
+  position: sticky;
+  margin-right: 1rem;
+
+
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  background-color: #e3afbc7e;
+
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 150%;
+  color: white;
+}
+
+#navbar header {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+
+  text-transform: uppercase;
+  font-size: 2rem;;
+}
+
+#navbar a {
+  display: block;
+
+  margin: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+
+  color: white;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+#navbar a:hover {
+  background-color: #e3e2df9d;
+  transition: 0.5s;
+}
+
+.content-container {
+  margin-left: 200px;
+  padding-left: 4rem;
+}
+
+#main-section {
+  margin-top: 4rem;
+  margin-right: 4rem;
+
+  min-width: 27rem;
+
+  background-color: #e3e2dfe5;
+}
+
+#main-section header {
+  padding-top: 3rem;
+  padding-left: 3rem;
+
+  font-family: Abril;
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+
+#main-section p {
+  padding: 3rem;
+}
