@@ -30,10 +30,58 @@
 
 function checkCashRegister(price, cash, cid) {
 
+  let values = [
+    {key: "PENNY", value: 0.01}, 
+    {key: "NICKEL", value: 0.05}, 
+    {key: "DIME", value: 0.1}, 
+    {key: "QUARTER", value: 0.25}, 
+    {key: "ONE", value: 1}, 
+    {key: "FIVE", value: 5}, 
+    {key: "TEN", value: 10}, 
+    {key: "TWENTY", value: 20}, 
+    {key: "ONE HUNDRED", value: 100}
+  ];
+  let changeArray = [];
 
+  function floatFixer(num) {
+    return num = parseInt(num * 100) / 100;
+  }
+
+  cid = cid.reverse();
+  values = values.reverse();
+  let output = { status: "", change: []};
+  let change = cash - price;
+  let totalcid = cid.reduce((total, denom) => {
+    return (total + denom[1]);
+  }, 0);
+
+  change = floatFixer(change);
+  totalcid = floatFixer(totalcid);
+
+  if (totalcid < change) {
+    output.status = "INSUFFICIENT_FUNDS";
+  }
+  if (totalcid == change) {
+    output.status = "CLOSED";
+    output.change = cid.reverse();
+  }
+  if (totalcid > change) {
+    for (let i = 0; i < cid.length; i++) {
+      while (totalcid > change) {
+        
+      }
+    }
+  }
+
+  console.log(values[1].value)
+
+  return output;
+
+  
 }
+// console.log(checkCashRegister(19.99, 20, [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]))
 
-checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]);
+console.log(checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]));
 
 
 // checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]) should return an object.
