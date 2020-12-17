@@ -30,16 +30,27 @@
 
 function checkCashRegister(price, cash, cid) {
 
+  // let values = [
+  //   {key: "PENNY", value: 0.01}, 
+  //   {key: "NICKEL", value: 0.05}, 
+  //   {key: "DIME", value: 0.1}, 
+  //   {key: "QUARTER", value: 0.25}, 
+  //   {key: "ONE", value: 1}, 
+  //   {key: "FIVE", value: 5}, 
+  //   {key: "TEN", value: 10}, 
+  //   {key: "TWENTY", value: 20}, 
+  //   {key: "ONE HUNDRED", value: 100}
+  // ];
   let values = [
-    {key: "PENNY", value: 0.01}, 
-    {key: "NICKEL", value: 0.05}, 
-    {key: "DIME", value: 0.1}, 
-    {key: "QUARTER", value: 0.25}, 
-    {key: "ONE", value: 1}, 
-    {key: "FIVE", value: 5}, 
-    {key: "TEN", value: 10}, 
-    {key: "TWENTY", value: 20}, 
-    {key: "ONE HUNDRED", value: 100}
+    ["PENNY", 0.01], 
+    ["NICKEL", 0.05], 
+    ["DIME", 0.1], 
+    ["QUARTER", 0.25], 
+    ["ONE", 1], 
+    ["FIVE", 5], 
+    ["TEN", 10], 
+    ["TWENTY", 20], 
+    ["ONE HUNDRED", 100]
   ];
   let changeArray = [];
 
@@ -66,14 +77,17 @@ function checkCashRegister(price, cash, cid) {
     output.change = cid.reverse();
   }
   if (totalcid > change) {
-    for (let i = 0; i < cid.length; i++) {
-      while (totalcid > change) {
-        
+    for (let i = 0; i < values.length; i++) {
+      while (totalcid > change && values[i][1] <= change) {
+        console.log(totalcid, change, values[i][1]);
+        change -= values[i][1];
+        console.log(totalcid, change, values[i][1]);
+        break;
       }
     }
   }
 
-  console.log(values[1].value)
+  console.log(changeArray);
 
   return output;
 
